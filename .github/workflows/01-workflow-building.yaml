@@ -1,0 +1,9 @@
+name: 01-workflow-building-block
+on: push
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: this is first step
+              run: echo " first job executed"
