@@ -26,7 +26,7 @@ jobs:
                 echo "Env Variable: ${{env.WORKFLOW_VAR}}"  
             - name: var overritten
               env:
-                STEP-VARIABLE: I am step variable 2
+                STEP_VARIABLE: I am step variable 2
                 OVERWRITTEN: I have overritten at Step level
               run: |
                 echo "Env Variable: $STEP_VARIABLE"
