@@ -29,5 +29,5 @@ jobs:
                 STEP-VARIABLE : I am step variable 2
                 OVERWRITTEN: I have overritten at Step level
               run: |
-                echo "Env Variable: ${{env.STEP_VARIABLE}}"
-                echo "Env Variable: ${{env.OVERWRITTEN}}"
+                echo "Env Variable: $STEP_VARIABLE"
+                echo "Env Variable: $OVERWRITTEN"
