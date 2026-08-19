@@ -1,0 +1,17 @@
+# this work flow is designed to play with variables with a single work flow
+name: 02-Variables-Workflow
+run-name: 02-Variable-Workflow
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    variable_job:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: play with variables
+              env:
+                STEP_VARIABLE: I am a steps variable
+              run: |
+                echo " Env Variable ${{env.STEP_VARIABLE}}"    
