@@ -30,4 +30,4 @@ jobs:
                 OVERRITTEN: I have overritten at Step level
               run: |
                 echo "Env Variable: ${{env.STEP_VARIABLE}}"
-                echo "Env Variable: ${{env.OVERRITTEN}}"
+                echo "Env Variable: $OVERRITTEN"
