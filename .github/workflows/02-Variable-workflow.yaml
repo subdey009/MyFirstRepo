@@ -4,14 +4,30 @@ run-name: 02-Variable-Workflow
 on:
     push:
     workflow_dispatch:
-
+env:
+  WORKFLOW_VAR: I am a workflow variable
+  OVERRITTEN: I will be overritten
+  
 jobs:
     variable_job:
         runs-on: ubuntu-latest
+        env:
+          JOB_VAR: I am job env var
+          OERRITTEN: I have overritten at the job level
 
         steps:
             - name: play with variables
               env:
-                STEP_VARIABLE: I am a steps variable
+                STEP_VARIABLE: I am a steps variable 1
               run: |
-                echo " Env Variable ${{env.STEP_VARIABLE}}"    
+                echo "Env Variable: ${{env.STEP_VARIABLE}}" 
+                echo "Env Variable: ${{env.OVERRITTEN}}" 
+                echo "Env Variable: $JOB_VAR"
+                echo "Env Variable: ${{env.WORKFLOW_VAR}}"  
+            - name: var overritten
+              evn:
+                STEP-VARIABLE : I am step variable 2
+                OVERRITTEN: I have overritten at Step level
+              run: |
+                print "Env Variable: ${{env.STEP_VARIABLE}}"
+                print "Env Variable: ${{env.OVERRITTEN}}"
