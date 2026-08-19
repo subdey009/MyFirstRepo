@@ -1,0 +1,43 @@
+# here we define Organization & Repository level variables
+#I could not define Orgnization variable as it is my personal account.
+name: 03-ORG-Repo-Variable-WF
+run-name: 03-Org-Repo-Variable-WF
+
+on:
+    push:
+    workflow_dispatch:
+jobs:
+    org-vars:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Org variable
+              run: |
+                echo "I could not define Org var due to personal account"
+    repo-vars:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Repo variable
+              run: |
+                echo "this is a second step: Repo variable"
+                echo "the repo var: ${{vars.MY_VAR}}"
+                echo "Another repo var: ${{vars.REPOSITORY_VAR}}"
+    environment-prod-vars:
+        runs-on: ubuntu-latest
+        environment: prod
+        steps: 
+            - name: Prod Env
+              run: |
+                echo "Thsi sis Prod environment:"
+                echo "Prod valiable 1: ${{vars.OVERWRITTEN_VAR}}"
+                echo "prod variable 2: ${{ vars.TARGET_VAR}}"
+    environment-stagging-vars:
+        runs-on: ubuntu-latest
+        environment: stagging
+        steps:
+            - name: Stagging Env
+              run: |
+                echo "This is Stagging environment:"
+                echo "Stagging var: ${{vars.TARGET_VAR}}"
+        
+
